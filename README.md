@@ -8,5 +8,5 @@ Some snapshots of website,
 ![login](https://github.com/vikash1a/to_do_list/blob/master/Snapshots/login.jpg)
 ![profile](https://github.com/vikash1a/to_do_list/blob/master/Snapshots/profile.jpg)
 ![Create_task](https://github.com/vikash1a/to_do_list/blob/master/Snapshots/Create_task.jpg)
-![Update_task](https://github.com/vikash1a/to_do_list/blob/master/Snapshots/Update_task.jpg)
+![Update_task](https://github.com/vikash1a/to_do_list/blob/master/Snapshots/update_task.jpg)
 ![Delete_task](https://github.com/vikash1a/to_do_list/blob/master/Snapshots/Delete_task.jpg)
