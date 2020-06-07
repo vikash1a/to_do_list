@@ -1,0 +1,92 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Webapp</title>{% endblock %}
+{% block content %}
+    <hr>
+    <div class="page-header">
+      <h1><a href="task/create/"> + Create new Task</a></h1>
+    </div>
+    <hr>
+    <div>
+      <h4><u><button onclick="show_filters()">Filter tasks</button></u></h4>
+    </div>
+    
+    <div id="serch_filter">
+      <form action="{% url 'user-home' %}" method="get">
+        <table class="table">
+          <tr>
+            <th>Search - </th>
+            <td><input name="q" type="text" placeholder="Search..." id="id_search"></td>
+            <th>Due Date - </th>
+            <td><input type="date" name="due_date"   id="id_due_date"></td>
+          </tr>
+          <tr>
+            <th>Status - </th>
+            <td>
+              <select name="status" id="id_status">
+                <option value="" selected="">---------</option>
+              
+                <option value="n">New</option>
+              
+                <option value="p" >Progress</option>
+              
+                <option value="c">Completed</option>
+              </select>
+            </td>
+            <th>
+              Label -
+            </th>
+            <td>
+              <select name="label" id="id_label">
+                <option value="" selected="">---------</option>
+              
+                <option value="p">Personal</option>
+              
+                <option value="w" >Work</option>
+              
+                <option value="s">Shopping</option>
+              
+                <option value="o">Others</option>
+              
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th></th><th></th><th></th>
+            <th><button id="filter" type="submit" >Filter   </button></th>
+            
+          </tr>
+        </table>
+      </form>
+    </div>
+      
+    <h2>Your Tasks</h2>
+    {% if task_list %}
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Due Date</th>
+          <th>Date Created</th>
+          <th>Status</th>
+          <th>Label</th>
+          <th>Update / Delete</th>
+        </tr>
+        {% for task in task_list %}
+          <tr>
+            <td>{{task.name}}</td>
+            <td>{{task.due_date}}</td>
+            <td>{{task.date_created}}</td>
+            <td>{{task.get_status_display}}</td>
+            <td>{{task.get_label_display}}</td>
+            <td><a href="task/{{task.id}}/update">Update</a><a href="task/{{task.id}}/delete"> / Delete</a></td>
+          </tr>
+        
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No tasks to show</p>
+    {% endif %}       
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src="{%static 'js/script.js' %}"></script>
+{% endblock %}
